@@ -106,28 +106,20 @@ resource "aws_default_security_group" "main_vpc_security_group" {
     }
 }
 
-#resource "aws_ebs_volume" "dl" {
-#  availability_zone = "us-east-1a"
-#  size = 1
-#  tags {
-#    Name = "aws_deep_learning_custom_spot"
-#  }
-#}
-
-resource "aws_spot_instance_request" "aws_deep_learning_custom_spot" {
+resource "aws_spot_instance_request" "aws_dl_custom_spot" {
     ami           = "ami-dff741a0"
-    spot_price    = "0.30"
-    instance_type = "p2.xlarge"
+    spot_price    = "${var.spotPrice}"
+    instance_type = "${var.instanceType}"
     security_groups = ["${aws_default_security_group.main_vpc_security_group.id}"]
     subnet_id = "${aws_subnet.main_vpc_subnet.id}"
     key_name = "${var.myKeyPair}"
     monitoring = true
     ebs_block_device = [ {
                            device_name = "/dev/sdh"
-                           volume_size = 1
+                           volume_size = "${var.ebsVolume}"
                            volume_type = "gp2"
                         } ]
     tags {
-        Name = "aws_deep_learning_custom_spot"
+        Name = "aws_dl_custom_spot"
     }
 }

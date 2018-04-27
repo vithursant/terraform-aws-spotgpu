@@ -13,6 +13,18 @@ This is a demo repository containing terraform module for provisioning EC2-based
 * [terraform](https://www.terraform.io/)
 * [aws-cli](https://aws.amazon.com/cli/)
 
+## Configuration
+This demo terraform script creates makes a Spot Instance request for a ```p2.xlarge``` in AWS and allows you to connect to a Jupyter notebook running on the server. This script could be more generic, but for now its only been tested on my own AWS setup, so I'm open to more contribution to the repo :)
+
+In the ```variables.tf``` some of the variables you can set are:
+    * myRegion          (default = us-east-1)
+    * myKeyPair         (default = my-test)
+    * instanceType      (default = p2.xlarge)
+    * spotPrice         (default = 0.30)
+    * ebsVolume         (default = 1)
+
+**Note: The minimum spotPrice should follow the [AWS EC2 Spot Instances Pricing](https://aws.amazon.com/ec2/spot/pricing/), otherwise your request will not be fulfilled because the price is too low.**
+
 ## Quick Start
 1. Check to see if Terraform is installed properly:
 ```

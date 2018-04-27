@@ -18,7 +18,17 @@ variable "myKeyPair" {
   default = "my-test"
 }
 
+variable "instanceType" {
+  type    = "string"
+  default = "p2.xlarge"
+}
+
 variable "spotPrice" {
   type    = "string"
   default = "0.30"
+}
+
+variable "ebsVolume" {
+  type    = "string"
+  default = "1"
 }
