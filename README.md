@@ -1,1 +1,1 @@
-# aws-terraform-gpu-spot-instances
+# Spot GPU Instances on AWS for Deep Learning
