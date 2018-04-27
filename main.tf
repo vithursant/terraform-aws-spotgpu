@@ -74,19 +74,31 @@ resource "aws_default_network_acl" "main_vpc_nacl" {
 resource "aws_default_security_group" "main_vpc_security_group" {
     vpc_id = "${aws_vpc.main_vpc.id}"
 
+    # SSH access from anywhere
     ingress {
-        protocol    = "-1"
-//        cidr_blocks = ["${var.myIp}"]
-        cidr_blocks = ["0.0.0.0/0"]
-        from_port   = 0
-        to_port     = 0
+      from_port = 22
+      to_port = 22
+      protocol = "tcp"
+      cidr_blocks = [
+        "0.0.0.0/0"]
     }
 
+    # for Jupyter notebook
+    ingress {
+      from_port = 8888
+      to_port = 8888
+      protocol = "tcp"
+      cidr_blocks = [
+        "0.0.0.0/0"]
+    }
+
+    # for git clone
     egress {
-        protocol        = "-1"
-        cidr_blocks     = ["0.0.0.0/0"]
-        from_port       = 0
-        to_port         = 0
+      from_port = 0
+      to_port = 0
+      protocol = "-1"
+      cidr_blocks = [
+        "0.0.0.0/0"]
     }
 
     tags {
@@ -94,24 +106,27 @@ resource "aws_default_security_group" "main_vpc_security_group" {
     }
 }
 
-// Terraform Test Ami //////////////////////////////////////////////
-//resource "aws_instance" "test" {
-//    ami           = "ami-43a15f3e"
-//    instance_type = "t2.micro"
-//    security_groups = ["${aws_default_security_group.main_vpc_security_group.id}"]
-//    subnet_id = "${aws_subnet.main_vpc_subnet.id}"
-//    associate_public_ip_address = true
-//    key_name = "${var.myKeyPair}"
-//}
+#resource "aws_ebs_volume" "dl" {
+#  availability_zone = "us-east-1a"
+#  size = 1
+#  tags {
+#    Name = "aws_deep_learning_custom_spot"
+#  }
+#}
 
 resource "aws_spot_instance_request" "aws_deep_learning_custom_spot" {
-    ami           = "ami-43a15f3e"
-    spot_price    = "0.25"
-    instance_type = "g2.2xlarge"
+    ami           = "ami-dff741a0"
+    spot_price    = "0.30"
+    instance_type = "p2.xlarge"
     security_groups = ["${aws_default_security_group.main_vpc_security_group.id}"]
     subnet_id = "${aws_subnet.main_vpc_subnet.id}"
     key_name = "${var.myKeyPair}"
     monitoring = true
+    ebs_block_device = [ {
+                           device_name = "/dev/sdh"
+                           volume_size = 1
+                           volume_type = "gp2"
+                        } ]
     tags {
         Name = "aws_deep_learning_custom_spot"
     }

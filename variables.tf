@@ -17,3 +17,8 @@ variable "myKeyPair" {
   type    = "string"
   default = "my-test"
 }
+
+variable "spotPrice" {
+  type    = "string"
+  default = "0.30"
+}
