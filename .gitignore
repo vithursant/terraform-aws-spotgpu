@@ -1,5 +1,5 @@
-.tfstate
-.tfstate.backup
+*.tfstate
+*.tfstate.backup
 .DS_Store
-.plan
+*.plan
 .terraform/
