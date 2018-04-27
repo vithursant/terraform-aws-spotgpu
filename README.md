@@ -16,7 +16,7 @@ This is a demo repository containing terraform module for provisioning EC2-based
 ## Configuration
 This demo terraform script creates makes a Spot Instance request for a ```p2.xlarge``` in AWS and allows you to connect to a Jupyter notebook running on the server. This script could be more generic, but for now its only been tested on my own AWS setup, so I'm open to more contribution to the repo :)
 
-In the ```variables.tf``` some of the variables you can set are:
+In the ```variables.tf``` file some of the variables you can configure for your setup are:
     * myRegion          (default = us-east-1)
     * myKeyPair         (default = my-test)
     * instanceType      (default = p2.xlarge)
