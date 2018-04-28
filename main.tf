@@ -107,7 +107,7 @@ resource "aws_default_security_group" "main_vpc_security_group" {
 }
 
 resource "aws_spot_instance_request" "aws_dl_custom_spot" {
-    ami           = "ami-dff741a0"
+    ami           = "${var.amiID}"
     spot_price    = "${var.spotPrice}"
     instance_type = "${var.instanceType}"
     security_groups = ["${aws_default_security_group.main_vpc_security_group.id}"]

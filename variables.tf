@@ -32,3 +32,8 @@ variable "ebsVolume" {
   type    = "string"
   default = "1"
 }
+
+variable "amiID" {
+  type    = "string"
+  default = "ami-dff741a0"
+}

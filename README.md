@@ -14,19 +14,25 @@ This is a demo repository containing terraform module for provisioning EC2-based
 * [Amazon Web Services CLI (aws-cli)](https://aws.amazon.com/cli/)
 * [AWS Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
-**Note: Terraform and aws-cli can be installed with `brew install` on Mac.** 
+**Note: Terraform and aws-cli can be installed with `brew install` on Mac.**
 
 ## Configuration
 This demo terraform script creates makes a Spot Instance request for a `p2.xlarge` in AWS and allows you to connect to a Jupyter notebook running on the server. This script could be more generic, but for now its only been tested on my own AWS setup, so I'm open to more contribution to the repo :)
 
 In the `variables.tf` file some of the variables you can configure for your setup are:
+```sh
     * myRegion          (default = us-east-1)
     * myKeyPair         (default = my-test)
     * instanceType      (default = p2.xlarge)
     * spotPrice         (default = 0.30)
     * ebsVolume         (default = 1)
+    * amiID             (default = ami-dff741a0)
+```
 
 **Note: The minimum spotPrice should follow the [AWS EC2 Spot Instances Pricing](https://aws.amazon.com/ec2/spot/pricing/), otherwise your request will not be fulfilled because the price is too low.**
+
+In this demo, I am using the [AWS Deep Learning AMI](https://aws.amazon.com/marketplace/pp/B077GCH38C), because its free and provides you with `Anaconda` environments for most of the popular DL frameworks (see image below). Also, the software cost is **$0.00/hr**, and you don't have to worry about installing the NVIDIA drivers and DL software manually.
+
 
 ## Quick Start
 1. Check to see if Terraform is installed properly:
