@@ -45,10 +45,11 @@ terraform plan
 ```sh
 terraform plan -refresh=true -input=False -lock=true -out=./proposed-changes.plan
 ```
-    View the output from the `.plan` file in human-readable format:
-    ```sh
-    terraform show proposed-changes.plan
-    ```
+
+5. View the output from the `.plan` file in human-readable format:
+```sh
+terraform show proposed-changes.plan
+```
 
 4. Provision the instance(s) by applying the changes to get the desired state based on the plan:
 ```sh
