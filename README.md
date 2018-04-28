@@ -24,6 +24,7 @@ In the `variables.tf` file some of the variables you can configure for your setu
     * myRegion          (default = us-east-1)
     * myKeyPair         (default = my-test)
     * instanceType      (default = p2.xlarge)
+    * numInstances      (default = 1)
     * spotPrice         (default = 0.30)
     * ebsVolume         (default = 1)
     * amiID             (default = ami-dff741a0)

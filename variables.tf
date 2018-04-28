@@ -37,3 +37,8 @@ variable "amiID" {
   type    = "string"
   default = "ami-dff741a0"
 }
+
+variable "numInstances" {
+  type    = "string"
+  default = "1"
+}

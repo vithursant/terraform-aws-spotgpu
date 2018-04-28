@@ -114,6 +114,7 @@ resource "aws_spot_instance_request" "aws_dl_custom_spot" {
     subnet_id = "${aws_subnet.main_vpc_subnet.id}"
     key_name = "${var.myKeyPair}"
     monitoring = true
+    count = "${var.numInstances}"
     ebs_block_device = [ {
                            device_name = "/dev/sdh"
                            volume_size = "${var.ebsVolume}"
