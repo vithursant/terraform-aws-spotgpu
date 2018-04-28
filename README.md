@@ -31,6 +31,7 @@ In the ```variables.tf``` file some of the variables you can configure for your 
 ```sh
 terraform
 ```
+
 2. Initalize the working directory containing the Terraform configuration files:
 ```sh
 terraform init
@@ -40,14 +41,14 @@ terraform init
 ```sh
 terraform plan
 ```
-    ** Note: This allows your to view the output configurations in the terminal, but you can also save the execution plan for debugging purposes as follows**
-```sh
-terraform plan -refresh=true -input=False -lock=true -out=./proposed-changes.plan
-```
+    **Note: This allows your to view the output configurations in the terminal, but you can also save the execution plan for debugging purposes as follows**
+    ```sh
+    terraform plan -refresh=true -input=False -lock=true -out=./proposed-changes.plan
+    ```
     View the output from the ```.plan``` file in human-readable format:
-```sh
-terraform show proposed-changes.plan
-```
+    ```sh
+    terraform show proposed-changes.plan
+    ```
 
 4. Provision the instance(s) by applying the changes to get the desired state based on the plan:
 ```sh
