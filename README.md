@@ -10,8 +10,9 @@ This is a demo repository containing terraform module for provisioning EC2-based
 * [Other Resources](#other-resources)
 
 ## Requirements
-* [terraform](https://www.terraform.io/)
-* [aws-cli](https://aws.amazon.com/cli/)
+* [Terraform](https://www.terraform.io/)
+* [Amazon Web Services CLI (aws-cli)](https://aws.amazon.com/cli/)
+* [AWS Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
 ## Configuration
 This demo terraform script creates makes a Spot Instance request for a ```p2.xlarge``` in AWS and allows you to connect to a Jupyter notebook running on the server. This script could be more generic, but for now its only been tested on my own AWS setup, so I'm open to more contribution to the repo :)
@@ -27,32 +28,29 @@ In the ```variables.tf``` file some of the variables you can configure for your 
 
 ## Quick Start
 1. Check to see if Terraform is installed properly:
-```
+```sh
 terraform
 ```
 2. Initalize the working directory containing the Terraform configuration files:
-```
+```sh
 terraform init
 ```
 
 3. Create the terraform execution plan, which is an easy way to check what actions are needed to be taken to get the desired state:
-```
+```sh
 terraform plan
 ```
     ** Note: This allows your to view the output configurations in the terminal, but you can also save the execution plan for debugging purposes as follows**
-
-    ```
-    terraform plan -refresh=true -input=False -lock=true -out=./proposed-changes.plan
-    ```
-
+```sh
+terraform plan -refresh=true -input=False -lock=true -out=./proposed-changes.plan
+```
     View the output from the ```.plan``` file in human-readable format:
-
-    ```
-    terraform show proposed-changes.plan
-    ```
+```sh
+terraform show proposed-changes.plan
+```
 
 4. Provision the instance(s) by applying the changes to get the desired state based on the plan:
-```
+```sh
 terraform apply
 ```
 
