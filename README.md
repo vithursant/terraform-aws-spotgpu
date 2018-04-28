@@ -41,7 +41,7 @@ terraform init
 ```sh
 terraform plan
 ```
-    **Note: This allows your to view the output configurations in the terminal, but you can also save the execution plan for debugging purposes as follows**
+    * **Note: This allows your to view the output configurations in the terminal, but you can also save the execution plan for debugging purposes as follows**
     ```sh
     terraform plan -refresh=true -input=False -lock=true -out=./proposed-changes.plan
     ```
