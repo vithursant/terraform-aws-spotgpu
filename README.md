@@ -34,6 +34,11 @@ In the `variables.tf` file some of the variables you can configure for your setu
 In this demo, I am using the [AWS Deep Learning AMI](https://aws.amazon.com/marketplace/pp/B077GCH38C), because its free and provides you with `Anaconda` environments for most of the popular DL frameworks (see image below). Also, the software cost is **$0.00/hr**, and you don't have to worry about installing the NVIDIA drivers and DL software manually.
 
 
+<p align="left">
+  <img src="images/deeplearning_ami.png" width="430" title="AWS Deep Learning AMI">
+</p>
+
+
 ## Quick Start
 1. Check to see if Terraform is installed properly:
 ```sh
