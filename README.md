@@ -31,7 +31,7 @@ This repository contains a terraform module for provisioning EC2-based Spot Inst
 
 ## Configuration
 #### AWS Key Pair
-The instructions for creating an AWS Key Pair are [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair). This key needs be created in the corresponding AWS region you are working in. The name of the key pair has to be the same as the one listed in the AWS console.
+The instructions for creating an AWS Key Pair are [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair). This key needs be created in the corresponding AWS region you are working in. The name of the key pair has to be the same as the one listed in the AWS console. You will need to specify this in the `my_key_pair_name` variable (see Section [Variables](#variables)).
 
 <p align="left">
   <center><img src="images/aws_key_pair.png" width="430" title="AWS Key Pair"></center>
