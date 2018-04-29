@@ -16,8 +16,8 @@ This is repository contains a terraform module for provisioning EC2-based Spot I
     * [Debugging](#debugging)
 * [Future Work](#future-work)
 * [Other Resources](#other-resources)
-    [Terraform](#terraform)
-    [Deep Learning on AWS](#deep-learning-on-aws)
+    * [Terraform](#terraform)
+    * [Deep Learning on AWS](#deep-learning-on-aws)
 * [Authors](#authors)
 * [License](#license)
 
