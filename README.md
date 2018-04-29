@@ -6,6 +6,7 @@ This is a demo repository containing terraform module for provisioning EC2-based
 * [Requirements](#requirements)
 * [Configurations](#configuration)
 * [Quick Start](#quick-start)
+* [Tips and Tricks](#tips-and-tricks)
 * [Future Work](#future-work)
 * [Other Resources](#other-resources)
 
@@ -55,15 +56,6 @@ terraform init
 ```sh
 terraform plan
 ```
-4. **Note: Step 3 allows your to view the output configurations in the terminal, but you can also save the execution plan for debugging purposes:**
-```sh
-terraform plan -refresh=true -input=False -lock=true -out=./proposed-changes.plan
-```
-
-5. View the output from the `.plan` file in human-readable format:
-```sh
-terraform show proposed-changes.plan
-```
 
 4. Provision the instance(s) by applying the changes to get the desired state based on the plan:
 ```sh
@@ -72,8 +64,19 @@ terraform apply
 
 5. Login to your EC2 Management Console and you should see your [Spot Instance Request](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html). You should also see all of the instances and  volumes that were provisioned.
 
+## Tips and Tricks
+#### Debugging
+1. Step 3 in the [Quick Start](#quick-start) section allows you to view the output configurations in the terminal, but you can also save the execution plan for debugging purposes:
+```sh
+terraform plan -refresh=true -input=False -lock=true -out=./proposed-changes.plan
+```
+
+2. View the output from the `.plan` file in human-readable format:
+```sh
+terraform show proposed-changes.plan
+```
+
 ## Future Work
-TODO
 
 ## Other resources
 TODO
