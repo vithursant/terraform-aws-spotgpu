@@ -1,9 +1,9 @@
 provider "aws" {
-    region = "${var.myRegion}"
+    region = "${var.my_region}"
 }
 
 resource "aws_vpc" "main_vpc" {
-    cidr_block = "${var.myCidrBlock}"
+    cidr_block = "${var.my_cidr_block}"
     instance_tenancy = "default"
     enable_dns_hostnames = true
 
@@ -35,7 +35,7 @@ resource "aws_default_route_table" "main_vpc_default_route_table" {
 
 resource "aws_subnet" "main_vpc_subnet" {
     vpc_id = "${aws_vpc.main_vpc.id}"
-    cidr_block = "${var.myCidrBlock}"
+    cidr_block = "${var.my_cidr_block}"
     map_public_ip_on_launch = true
 
     tags {
@@ -51,7 +51,7 @@ resource "aws_default_network_acl" "main_vpc_nacl" {
         protocol   = -1
         rule_no    = 1
         action     = "allow"
-//        cidr_block = "${var.myIp}"
+//        cidr_block = "${var.my_ip}"
         cidr_block = "0.0.0.0/0"
         from_port  = 0
         to_port    = 0
@@ -107,19 +107,20 @@ resource "aws_default_security_group" "main_vpc_security_group" {
 }
 
 resource "aws_spot_instance_request" "aws_dl_custom_spot" {
-    ami           = "${var.amiID}"
-    spot_price    = "${var.spotPrice}"
-    instance_type = "${var.instanceType}"
-    security_groups = ["${aws_default_security_group.main_vpc_security_group.id}"]
-    subnet_id = "${aws_subnet.main_vpc_subnet.id}"
-    key_name = "${var.myKeyPair}"
-    monitoring = true
-    count = "${var.numInstances}"
-    ebs_block_device = [ {
-                           device_name = "/dev/sdh"
-                           volume_size = "${var.ebsVolume}"
-                           volume_type = "gp2"
-                        } ]
+    ami                         = "${var.ami_id}"
+    spot_price                  = "${var.spot_price}"
+    instance_type               = "${var.instance_type}"
+    key_name                    = "${var.my_key_pair_name}"
+    monitoring                  = true
+    associate_public_ip_address = true
+    count                       = "${var.num_instances}"
+    security_groups             = ["${aws_default_security_group.main_vpc_security_group.id}"]
+    subnet_id                   = "${aws_subnet.main_vpc_subnet.id}"
+    ebs_block_device            = [ {
+                                    device_name = "/dev/sdh"
+                                    volume_size = "${var.ebs_volume_size}"
+                                    volume_type = "gp2"
+                                    } ]
     tags {
         Name = "aws_dl_custom_spot"
     }

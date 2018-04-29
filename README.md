@@ -14,6 +14,7 @@ This is a demo repository containing terraform module for provisioning EC2-based
     * [Debugging](#debugging)
 * [Future Work](#future-work)
 * [Other Resources](#other-resources)
+* [Authors](#authors)
 * [License](#license)
 
 ## Requirements
@@ -29,13 +30,13 @@ This demo terraform script creates makes a Spot Instance request for a `p2.xlarg
 
 In the `variables.tf` file some of the variables you can configure for your setup are:
 ```sh
-    * myRegion          (default = us-east-1)
-    * myKeyPair         (default = my-test)
-    * instanceType      (default = p2.xlarge)
-    * numInstances      (default = 1)
-    * spotPrice         (default = 0.30)
-    * ebsVolume         (default = 1)
-    * amiID             (default = ami-dff741a0)
+    * my_region                 (default = us-east-1)
+    * my_key_pair_name          (default = my-test)
+    * instance_type             (default = p2.xlarge)
+    * num_instances             (default = 1)
+    * spot_price                (default = 0.30)
+    * ebs_volume_size           (default = 1)
+    * ami_id                    (default = ami-dff741a0)
 ```
 
 **Note: The minimum spotPrice should follow the [AWS EC2 Spot Instances Pricing](https://aws.amazon.com/ec2/spot/pricing/), otherwise your request will not be fulfilled because the price is too low.**
@@ -45,7 +46,8 @@ In this demo, I am using the [AWS Deep Learning AMI](https://aws.amazon.com/mark
 
 
 <p align="left">
-  <img src="images/deeplearning_ami.png" width="430" title="AWS Deep Learning AMI">
+  <center><img src="images/deeplearning_ami.png" width="430" title="AWS Deep Learning AMI"></center>
+  <center><i>AWS Deep Learning AMI - a list of conda environments for deep learning frameworks.</i></center>
 </p>
 
 
@@ -60,7 +62,12 @@ terraform
 terraform init
 ```
 
-3. Create the terraform execution plan, which is an easy way to check what actions are needed to be taken to get the desired state:
+3. Validate the syntax of the terraform files:
+```sh
+terraform validate
+```
+
+4. Create the terraform execution plan, which is an easy way to check what actions are needed to be taken to get the desired state:
 ```sh
 terraform plan
 ```
@@ -69,8 +76,17 @@ terraform plan
 ```sh
 terraform apply
 ```
+<p align="center">
+  <center><img src="images/aws_request_2_spot_instances.png" width="430" title="AWS Deep Learning AMI"></center>
+  <center><i>Sample output showing requests for two p2.xlarge AWS EC2 Spot instances.</i></center>
+</p>
 
-5. Login to your EC2 Management Console and you should see your [Spot Instance Request](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html). You should also see all of the instances and  volumes that were provisioned.
+6. Login to your EC2 Management Console and you should see your [Spot Instance Request](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html). You should also see all of the instances and  volumes that were provisioned.
+
+7. Once done with the infrastructure, you can destroy it:
+```sh
+terraform destroy
+```
 
 ## Tips and Tricks
 #### Debugging
@@ -85,8 +101,13 @@ terraform show proposed-changes.plan
 ```
 
 ## Future Work
+TODO
 
 ## Other resources
+TODO
+
+## Authors
+Module is maintained by [Vithursan Thangarasa](https://github.com/vithursant)
 
 ## License
-[Apache License Version 2.0, January 2004](http://www.apache.org/licenses/)
+[Apache License Version 2.0, January 2004](http://www.apache.org/licenses/)  (See LICENSE for full details).
