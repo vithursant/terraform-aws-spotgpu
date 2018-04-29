@@ -2,7 +2,7 @@
 
 Terraform is an open source tool developed by Hashicorp, which allows you to codify your infrastructure. This means that you can write configuration files, instead of having to click around in the AWS or any cloud provider's console. The files are in pure text format, and therefore can be shared, versioned, peer-reviewed just like any other code. Basically, Terraform is a tool that helps you with achieving Infrastructure as Code (IaC). The orchestration space is very green, but I think Terraform is the standout option.
 
-This is repository contains a terraform module for provisioning EC2-based Spot Instances on AWS, specifically for Deep Learning workloads on [Amazon's GPU instances](https://docs.aws.amazon.com/dlami/latest/devguide/gpu.html), by taking advantage of automation and and friendly declarative configuration.
+This repository contains a terraform module for provisioning EC2-based Spot Instances on AWS, specifically for Deep Learning workloads on [Amazon's GPU instances](https://docs.aws.amazon.com/dlami/latest/devguide/gpu.html), by taking advantage of automation and and friendly declarative configuration.
 
 *Development and testing was done on a macOS High Sierra version 10.13.3*
 
