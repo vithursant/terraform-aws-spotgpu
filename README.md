@@ -9,6 +9,7 @@ This repository contains a terraform module for provisioning EC2-based Spot Inst
 ## Table of Contents
 * [Requirements](#requirements)
 * [Configurations](#configuration)
+    * [AWS Key Pair](#aws-key-pair)
     * [Variables](#variables)
     * [Amazon Machine Image](#amazon-machine-image)
 * [Quick Start](#quick-start)
@@ -26,6 +27,9 @@ This repository contains a terraform module for provisioning EC2-based Spot Inst
 * [Amazon Web Services CLI (aws-cli)](https://aws.amazon.com/cli/)
 * [AWS Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
+**Note: Terraform and aws-cli can be installed with `brew install` on Mac.**
+
+## Configuration
 #### AWS Key Pair
 The instructions for creating an AWS Key Pair are [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair). This key needs be created in the corresponding AWS region you are working in. The name of the key pair has to be the same as the one listed in the AWS console.
 
@@ -34,9 +38,6 @@ The instructions for creating an AWS Key Pair are [here](https://docs.aws.amazon
   <center><i>AWS Key Pair in the AWS Management Console.</i></center>
 </p>
 
-**Note: Terraform and aws-cli can be installed with `brew install` on Mac.**
-
-## Configuration
 #### Variables
 This demo terraform script creates makes a Spot Instance request for a `p2.xlarge` in AWS and allows you to connect to a Jupyter notebook running on the server. This script could be more generic, but for now its only been tested on my own AWS setup, so I'm open to more contribution to the repo :)
 
