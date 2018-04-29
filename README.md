@@ -7,8 +7,11 @@ This is a demo repository containing terraform module for provisioning EC2-based
 ## Table of Contents
 * [Requirements](#requirements)
 * [Configurations](#configuration)
+    * [Variables](#variables)
+    * [Amazon Machine Image](#amazon-machine-image)
 * [Quick Start](#quick-start)
 * [Tips and Tricks](#tips-and-tricks)
+    * [Debugging](#debugging)
 * [Future Work](#future-work)
 * [Other Resources](#other-resources)
 * [License](#license)
@@ -21,6 +24,7 @@ This is a demo repository containing terraform module for provisioning EC2-based
 **Note: Terraform and aws-cli can be installed with `brew install` on Mac.**
 
 ## Configuration
+#### Variables
 This demo terraform script creates makes a Spot Instance request for a `p2.xlarge` in AWS and allows you to connect to a Jupyter notebook running on the server. This script could be more generic, but for now its only been tested on my own AWS setup, so I'm open to more contribution to the repo :)
 
 In the `variables.tf` file some of the variables you can configure for your setup are:
@@ -36,7 +40,8 @@ In the `variables.tf` file some of the variables you can configure for your setu
 
 **Note: The minimum spotPrice should follow the [AWS EC2 Spot Instances Pricing](https://aws.amazon.com/ec2/spot/pricing/), otherwise your request will not be fulfilled because the price is too low.**
 
-In this demo, I am using the [AWS Deep Learning AMI](https://aws.amazon.com/marketplace/pp/B077GCH38C), because its free and provides you with `Anaconda` environments for most of the popular DL frameworks (see image below). Also, the software cost is **$0.00/hr**, and you don't have to worry about installing the NVIDIA drivers and DL software manually.
+#### Amazon Machine Image
+In this demo, I am using the [AWS Deep Learning AMI](https://aws.amazon.com/marketplace/pp/B077GCH38C), because its free and provides you with `Anaconda` environments for most of the popular DL frameworks (see image below). Also, the software cost is **$0.00/hr**, and you don't have to worry about installing the NVIDIA drivers and DL software (i.e. TensorFlow, PyTorch, MXNet, Caffe, Caffe2, etc) manually.
 
 
 <p align="left">
