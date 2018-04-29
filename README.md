@@ -1,6 +1,8 @@
 # Provisioning AWS Spot Instances for Deep Learning
 
-This is a demo repository containing terraform module for provisioning EC2-based Spot Instances on AWS, specifically for Deep Learning workloads on Amazon's GPU-based instances.
+Terraform is an open source tool developed by Hashicorp, which allows you to codify your infrastructure. This means that you can write configuration files, instead of having to click around in the AWS or any cloud provider's console. The files are in pure text format, and therefore can be shared, versioned, peer-reviewed just like any other code. Basically, Terraform is a tool that helps you with achieving Infrastructure as Code (IaC). The orchestration space is very green, but I think Terraform is the standout option.
+
+This is repository contains a terraform module for provisioning EC2-based Spot Instances on AWS, specifically for Deep Learning workloads on [Amazon's GPU instances](https://docs.aws.amazon.com/dlami/latest/devguide/gpu.html), by taking advantage of automation and and friendly declarative configuration.
 
 *Development and testing was done on a macOS High Sierra version 10.13.3*
 
@@ -101,10 +103,17 @@ terraform show proposed-changes.plan
 ```
 
 ## Future Work
-TODO
+* Terraform module for provisioning AWS On-Demand instances
+* Terraform module for setting up an AWS Elastic Container Service (ECS) cluster and run a service on the cluster
 
 ## Other resources
-TODO
+#### Terraform
+* [Terraform Introduction](https://www.terraform.io/intro/index.html)
+* [The Terraform Book](https://terraformbook.com/)
+
+#### Deep Learning on AWS
+* [Keras with GPU on Amazon EC2 – a step-by-step instruction](https://hackernoon.com/keras-with-gpu-on-amazon-ec2-a-step-by-step-instruction-4f90364e49ac)
+* [Benchmarking Tensorflow Performance and Cost Across Different GPU Options](https://medium.com/initialized-capital/benchmarking-tensorflow-performance-and-cost-across-different-gpu-options-69bd85fe5d58)
 
 ## Authors
 Module is maintained by [Vithursan Thangarasa](https://github.com/vithursant)
