@@ -1,3 +1,13 @@
+# ----------------------------------------#
+#
+#       | Terraform Main file |
+#
+# ----------------------------------------#
+# File: main.tf
+# Author: Vithursan Thangarasa (vithursant)
+# ----------------------------------------#
+
+# AWS Provider
 provider "aws" {
     region = "${var.my_region}"
 }

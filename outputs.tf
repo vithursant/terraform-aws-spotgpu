@@ -1,3 +1,12 @@
+# ----------------------------------------#
+#
+#       | Terraform Outputs file |
+#
+# ----------------------------------------#
+# File: outputs.tf
+# Author: Vithursan Thangarasa (vithursant)
+# ----------------------------------------#
+
 output "id" {
   value = ["${aws_spot_instance_request.aws_dl_custom_spot.*.id}"]
 }

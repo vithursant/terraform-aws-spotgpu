@@ -47,7 +47,7 @@ In this demo, I am using the [AWS Deep Learning AMI](https://aws.amazon.com/mark
 
 <p align="left">
   <center><img src="images/deeplearning_ami.png" width="430" title="AWS Deep Learning AMI"></center>
-  <center><i>AWS Deep Learning AMI - a list of conda environments for deep learning frameworks.</i></center>
+  <center><i>AWS Deep Learning AMI (Ubuntu) - a list of conda environments for deep learning frameworks optimized for CUDA/MKL.</i></center>
 </p>
 
 
