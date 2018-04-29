@@ -2,6 +2,8 @@
 
 This is a demo repository containing terraform module for provisioning EC2-based Spot Instances on AWS, specifically for Deep Learning workloads on Amazon's GPU-based instances.
 
+*Development and testing was done on a macOS High Sierra version 10.13.3*
+
 ## Table of Contents
 * [Requirements](#requirements)
 * [Configurations](#configuration)
@@ -9,9 +11,10 @@ This is a demo repository containing terraform module for provisioning EC2-based
 * [Tips and Tricks](#tips-and-tricks)
 * [Future Work](#future-work)
 * [Other Resources](#other-resources)
+* [License](#license)
 
 ## Requirements
-* [Terraform](https://www.terraform.io/)
+* [Terraform](https://www.terraform.io/) (tested on v0.11.7)
 * [Amazon Web Services CLI (aws-cli)](https://aws.amazon.com/cli/)
 * [AWS Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
@@ -79,4 +82,6 @@ terraform show proposed-changes.plan
 ## Future Work
 
 ## Other resources
-TODO
+
+## License
+[Apache License Version 2.0, January 2004](http://www.apache.org/licenses/)
