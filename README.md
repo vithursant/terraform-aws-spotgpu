@@ -1,4 +1,4 @@
-# Provisioning AWS Spot Instances for Deep Learning
+# Provisioning AWS Spot Instances for Deep Learning using Terraform
 
 Terraform is an open source tool developed by Hashicorp, which allows you to codify your infrastructure. This means that you can write configuration files, instead of having to click around in the AWS or any cloud provider's console. The files are in pure text format, and therefore can be shared, versioned, peer-reviewed just like any other code. Basically, Terraform is a tool that helps you with achieving Infrastructure as Code (IaC). The orchestration space is very green, but I think Terraform is the standout option.
 
