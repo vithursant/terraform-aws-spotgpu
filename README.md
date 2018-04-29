@@ -26,6 +26,14 @@ This repository contains a terraform module for provisioning EC2-based Spot Inst
 * [Amazon Web Services CLI (aws-cli)](https://aws.amazon.com/cli/)
 * [AWS Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
+#### AWS Key Pair
+The instructions for creating an AWS Key Pair are [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair). This key needs be created in the corresponding AWS region you are working in. The name of the key pair has to be the same as the one listed in the AWS console.
+
+<p align="left">
+  <center><img src="images/aws_key_pair.png" width="430" title="AWS Key Pair"></center>
+  <center><i>AWS Key Pair in the AWS Management Console.</i></center>
+</p>
+
 **Note: Terraform and aws-cli can be installed with `brew install` on Mac.**
 
 ## Configuration
