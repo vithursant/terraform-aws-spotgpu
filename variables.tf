@@ -10,7 +10,14 @@
 variable "my_region" {
   type    = "string"
   default = "us-east-1"
-  description = "The AWS region to deploy into (i.e. us-east-1)"
+  description = "The AWS region to deploy into (i.e. us-east-1)."
+}
+
+variable "avail_zone" {
+  type    = "string"
+  default = "us-east-1a"
+  description = "The AWS availability zone, which is location within the
+selected region to deploy (i.e. us-east-1a)."
 }
 
 variable "my_ip" {
@@ -37,14 +44,17 @@ variable "ssh-key-dir" {
 variable "instance_type" {
   type    = "string"
   default = "p2.xlarge"
-  description = "The instance type to provision the instances from (i.e. p2.xlarge)."
+  description = "The instance type to provision the instances from (i.e.
+p2.xlarge)."
 
 }
 
 variable "spot_price" {
   type    = "string"
   default = "0.30"
-  description = "The maximum hourly price (bid) you are willing to pay for the specified instance, i.e. 0.10. This price should not be below AWS' minimum spot price for the instance based on the region."
+  description = "The maximum hourly price (bid) you are willing to pay for the
+specified instance, i.e. 0.10. This price should not be below AWS' minimum spot
+price for the instance based on the region."
 }
 
 variable "ebs_volume_size" {

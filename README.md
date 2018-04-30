@@ -86,7 +86,7 @@ PyTorch, MXNet, Caffe, Caffe2, etc) manually.
 
 
 <p align="left">
-  <center><img src="images/deeplearning_ami.png" width="480" title="AWS Deep
+  <center><img src="images/deeplearning_ami.png" width="430" title="AWS Deep
 Learning AMI"></center>
   <center><i>AWS Deep Learning AMI (Ubuntu) - a list of conda environments for
 deep learning frameworks optimized for CUDA/MKL.</i></center>
@@ -94,41 +94,31 @@ deep learning frameworks optimized for CUDA/MKL.</i></center>
 
 
 ## Quick Start
-1. Configure your `AWS Access Key ID`, `AWS Secret Access Key` and `default
-region`:
-```
-$ aws configure
-AWS Access Key ID [None]: accesskey
-AWS Secret Access Key [None]: secretkey
-Default region name [None]: us-east-1
-Default output format [None]:
-```
-
-2. Check to see if Terraform is installed properly:
+1. Check to see if Terraform is installed properly:
 ```sh
-$ terraform
+terraform
 ```
 
-3. Initalize the working directory containing the Terraform configuration files:
+2. Initalize the working directory containing the Terraform configuration files:
 ```sh
-$ terraform init
+terraform init
 ```
 
-4. Validate the syntax of the terraform files:
+3. Validate the syntax of the terraform files:
 ```sh
-$ terraform validate
+terraform validate
 ```
 
-5. Create the terraform execution plan, which is an easy way to check what
+4. Create the terraform execution plan, which is an easy way to check what
 actions are needed to be taken to get the desired state:
 ```sh
-$ terraform plan
+terraform plan
 ```
 
-6. Provision the instance(s) by applying the changes to get the desired state
+4. Provision the instance(s) by applying the changes to get the desired state
 based on the plan:
 ```sh
-$ terraform apply
+terraform apply
 ```
 <p align="center">
   <center><img src="images/aws_request_2_spot_instances.png" width="430"
@@ -137,13 +127,13 @@ title="AWS Deep Learning AMI"></center>
 instances.</i></center>
 </p>
 
-7. Login to your EC2 Management Console and you should see your [Spot Instance
+6. Login to your EC2 Management Console and you should see your [Spot Instance
 Request](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html).
 You should also see all of the instances and  volumes that were provisioned.
 
-8. Once done with the infrastructure, you can destroy it:
+7. Once done with the infrastructure, you can destroy it:
 ```sh
-$ terraform destroy
+terraform destroy
 ```
 
 ## Tips and Tricks
@@ -156,7 +146,7 @@ terraform plan -refresh=true -input=False -lock=true
 -out=./proposed-changes.plan
 ```
 
-9. View the output from the `.plan` file in human-readable format:
+2. View the output from the `.plan` file in human-readable format:
 ```sh
 terraform show proposed-changes.plan
 ```
