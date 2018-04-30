@@ -9,7 +9,7 @@
 
 variable "my_region" {
   type    = "string"
-  default = "us-east-1"
+  default = "us-east-2"
   description = "The AWS region to deploy into (i.e. us-east-1)"
 }
 
@@ -25,7 +25,7 @@ variable "my_cidr_block" {
 
 variable "my_key_pair_name" {
   type    = "string"
-  default = "my-test"
+  default = "vi-test"
   description = "The name of the SSH key to install onto the instances."
 }
 
@@ -55,7 +55,7 @@ variable "ebs_volume_size" {
 
 variable "ami_id" {
   type    = "string"
-  default = "ami-dff741a0" # Default AWS Deep Learning AMI (Ubuntu)
+  default = "ami-4c5c6e29" # Default AWS Deep Learning AMI (Ubuntu)
   description = "The AMI ID to use for each instance."
 }
 
