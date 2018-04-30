@@ -12,6 +12,10 @@ provider "aws" {
     region = "${var.my_region}"
 }
 
+locals {
+  avail_zone = "${var.avail_zone}"
+}
+
 resource "aws_vpc" "main_vpc" {
     cidr_block = "${var.my_cidr_block}"
     instance_tenancy = "default"
@@ -47,7 +51,7 @@ resource "aws_subnet" "main_vpc_subnet" {
     vpc_id = "${aws_vpc.main_vpc.id}"
     cidr_block = "${var.my_cidr_block}"
     map_public_ip_on_launch = true
-
+    availability_zone  = "${local.avail_zone}"
     tags {
         Name = "main_vpc_subnet"
     }
@@ -124,7 +128,8 @@ resource "aws_spot_instance_request" "aws_dl_custom_spot" {
     monitoring                  = true
     associate_public_ip_address = true
     count                       = "${var.num_instances}"
-    security_groups             = ["${aws_default_security_group.main_vpc_security_group.id}"]
+    security_groups             =
+["${aws_default_security_group.main_vpc_security_group.id}"]
     subnet_id                   = "${aws_subnet.main_vpc_subnet.id}"
     ebs_block_device            = [ {
                                     device_name = "/dev/sdh"

@@ -37,14 +37,17 @@ variable "ssh-key-dir" {
 variable "instance_type" {
   type    = "string"
   default = "p2.xlarge"
-  description = "The instance type to provision the instances from (i.e. p2.xlarge)."
+  description = "The instance type to provision the instances from (i.e.
+p2.xlarge)."
 
 }
 
 variable "spot_price" {
   type    = "string"
   default = "0.30"
-  description = "The maximum hourly price (bid) you are willing to pay for the specified instance, i.e. 0.10. This price should not be below AWS' minimum spot price for the instance based on the region."
+  description = "The maximum hourly price (bid) you are willing to pay for the
+specified instance, i.e. 0.10. This price should not be below AWS' minimum spot
+price for the instance based on the region."
 }
 
 variable "ebs_volume_size" {
