@@ -63,13 +63,14 @@ on my own AWS setup, so I'm open to more contribution to the repo :)
 In the `variables.tf` file some of the variables you can configure for your
 setup are:
 ```sh
-    * my_region                 (default = us-east-1)
+    * my_region                 (default = us-east-1) # N. Virginia
+    * avail_zone                (default = us-east-1a)
     * my_key_pair_name          (default = my-test)
     * instance_type             (default = p2.xlarge)
     * num_instances             (default = 1)
     * spot_price                (default = 0.30)
     * ebs_volume_size           (default = 1)
-    * ami_id                    (default = ami-dff741a0)
+    * ami_id                    (default = ami-dff741a0) # AWS Deep Learning AMI (Ubuntu)
 ```
 
 **Note: The minimum spotPrice should follow the [AWS EC2 Spot Instances
