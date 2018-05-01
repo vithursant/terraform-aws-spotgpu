@@ -63,14 +63,14 @@ on my own AWS setup, so I'm open to more contribution to the repo :)
 In the `variables.tf` file some of the variables you can configure for your
 setup are:
 ```sh
-    * my_region                 (default = us-east-1) # N. Virginia
+    * my_region                 (default = us-east-1)       # N. Virginia
     * avail_zone                (default = us-east-1a)
     * my_key_pair_name          (default = my-test)
     * instance_type             (default = p2.xlarge)
     * num_instances             (default = 1)
     * spot_price                (default = 0.30)
     * ebs_volume_size           (default = 1)
-    * ami_id                    (default = ami-dff741a0) # AWS Deep Learning AMI (Ubuntu)
+    * ami_id                    (default = ami-dff741a0)    # AWS Deep Learning AMI (Ubuntu)
 ```
 
 **Note: The minimum spotPrice should follow the [AWS EC2 Spot Instances
@@ -95,31 +95,40 @@ deep learning frameworks optimized for CUDA/MKL.</i></center>
 
 
 ## Quick Start
-1. Check to see if Terraform is installed properly:
+1. Configure your `AWS Access Key`, `AWS Secret Access Key`, and `region name`:
 ```sh
-terraform
+$ aws configure
+AWS Access Key ID [None]: ********
+AWS Secret Access Key [None]: ********
+Default region name [None]: us-east-1
+Default output format [None]: 
 ```
 
-2. Initalize the working directory containing the Terraform configuration files:
+2. Check to see if Terraform is installed properly:
 ```sh
-terraform init
+$ terraform
 ```
 
-3. Validate the syntax of the terraform files:
+3. Initalize the working directory containing the Terraform configuration files:
 ```sh
-terraform validate
+$ terraform init
 ```
 
-4. Create the terraform execution plan, which is an easy way to check what
+4. Validate the syntax of the terraform files:
+```sh
+$ terraform validate
+```
+
+5. Create the terraform execution plan, which is an easy way to check what
 actions are needed to be taken to get the desired state:
 ```sh
-terraform plan
+$ terraform plan
 ```
 
-4. Provision the instance(s) by applying the changes to get the desired state
+6. Provision the instance(s) by applying the changes to get the desired state
 based on the plan:
 ```sh
-terraform apply
+$ terraform apply
 ```
 <p align="center">
   <center><img src="images/aws_request_2_spot_instances.png" width="430"
@@ -128,13 +137,12 @@ title="AWS Deep Learning AMI"></center>
 instances.</i></center>
 </p>
 
-6. Login to your EC2 Management Console and you should see your [Spot Instance
-Request](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html).
-You should also see all of the instances and  volumes that were provisioned.
+7. Login to your EC2 Management Console and you should see your [Spot Instance
+Request](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html). You should also see all of the instances and  volumes that were provisioned.
 
-7. Once done with the infrastructure, you can destroy it:
+8. Once done with the infrastructure, you can destroy it:
 ```sh
-terraform destroy
+$ terraform destroy
 ```
 
 ## Tips and Tricks
@@ -143,13 +151,13 @@ terraform destroy
 output configurations in the terminal, but you can also save the execution plan
 for debugging purposes:
 ```sh
-terraform plan -refresh=true -input=False -lock=true
+$ terraform plan -refresh=true -input=False -lock=true
 -out=./proposed-changes.plan
 ```
 
 2. View the output from the `.plan` file in human-readable format:
 ```sh
-terraform show proposed-changes.plan
+$ terraform show proposed-changes.plan
 ```
 
 ## Future Work
